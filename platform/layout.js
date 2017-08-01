@@ -11,7 +11,7 @@
   // Add a single command
   var commandHello = {
       smart:true,
-      indexes:["okay Ash *"], // These spoken words will trigger the execution of the command
+      indexes:["okay Bob *"], // These spoken words will trigger the execution of the command
       action:function(i, wildcard){ // Action to be executed when a index match with spoken word
         //  console.log(wildcard);
         //  artyom.dontObey();
