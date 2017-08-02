@@ -29,14 +29,19 @@ class Layout extends Component {
           //  artyom.obey();
              client.textRequest(wildcard)
              .then(function(response) {
+                     console.log(response);
                      var result;
+                     var itemName;
                      try {
-                       result = response.result.fulfillment.speech
+                       result = response.result.fulfillment.speech;
+                       itemName = response.result.fulfillment.messages[1].payload.name;
                      } catch(error) {
                        result = "";
+                       itemName = "";
                      }
                      //console.log(response);
                      //console.log(result);
+                     console.log("test: " +itemName);
                      Component.setState({theResult:result});
 
                      artyom.say(result);
