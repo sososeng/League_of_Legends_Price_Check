@@ -3,6 +3,7 @@ import Artyom from 'artyom.js';
 import {ApiAiClient} from "api-ai-javascript";
 
 import ResultStatement from './result';
+import UserInput from './userinput';
 
 class Layout extends Component {
   constructor(props){
@@ -19,6 +20,7 @@ class Layout extends Component {
     client = new ApiAiClient({accessToken: "585cfd962bea4e58bc07e568b69615a8"});
     const artyom = new Artyom();
     // Add a single command
+
     var commandHello = {
         smart:true,
         indexes:["okay Bob *"], // These spoken words will trigger the execution of the command
@@ -38,7 +40,6 @@ class Layout extends Component {
                      //console.log(response);
                      //console.log(result);
                      Component.setState({theResult:result});
-
                      artyom.say(result);
 
                    })
@@ -51,7 +52,6 @@ class Layout extends Component {
 
     artyom.addCommands(commandHello); // Add the command with addCommands method. Now
     startContinuousArtyom();
-
     // This function activates artyom and will listen all that you say forever (requires https conection, otherwise a dialog will request if you allow the use of the microphone)
     function startContinuousArtyom(){
         artyom.fatality();// use this to stop any of
@@ -72,11 +72,16 @@ class Layout extends Component {
   }
 
 
+
   render(){
     return(
       <div>
-      <ResultStatement answer={this.state} />
-
+        <div className="userinput">
+          <UserInput />
+        </div>
+        <div className="Result">
+          <ResultStatement answer={this.state.theResult} />
+        </div>
       </div>
     );
   }
