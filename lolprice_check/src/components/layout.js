@@ -3,22 +3,21 @@ import Artyom from 'artyom.js';
 import {ApiAiClient} from "api-ai-javascript";
 
 import ResultStatement from './result';
-import UserInput from './userinput';
 
 class Layout extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      theResult: ''
+      theResult: '',
+      input: ''
     };
 
+    this.client = new ApiAiClient({accessToken: "585cfd962bea4e58bc07e568b69615a8"});
+    this.artyom = new Artyom();
   }
   componentDidMount(){
-    var Component = this;
-    var client;
-    client = new ApiAiClient({accessToken: "585cfd962bea4e58bc07e568b69615a8"});
-    const artyom = new Artyom();
+    var mythis = this;
     // Add a single command
 
     var commandHello = {
@@ -29,7 +28,7 @@ class Layout extends Component {
           //  artyom.dontObey();
           //  artyom.say(wildcard);
           //  artyom.obey();
-             client.textRequest(wildcard)
+             mythis.client.textRequest(wildcard)
              .then(function(response) {
                      console.log(response);
                      var result;
@@ -38,14 +37,15 @@ class Layout extends Component {
                        result = response.result.fulfillment.speech;
                        itemName = response.result.fulfillment.messages[1].payload.name;
                      } catch(error) {
+                       console.log("error: "+ error);
                        result = "";
                        itemName = "";
                      }
                      //console.log(response);
-                     //console.log(result);
+                     console.log(result);
                      console.log("test: " +itemName);
-                     Component.setState({theResult:result});
-                     artyom.say(result);
+                     mythis.setState({theResult:result});
+                     mythis.artyom.say(result);
 
                    })
                    .catch(function(err) {
@@ -55,14 +55,14 @@ class Layout extends Component {
         }
     };
 
-    artyom.addCommands(commandHello); // Add the command with addCommands method. Now
+    mythis.artyom.addCommands(commandHello); // Add the command with addCommands method. Now
     startContinuousArtyom();
     // This function activates artyom and will listen all that you say forever (requires https conection, otherwise a dialog will request if you allow the use of the microphone)
     function startContinuousArtyom(){
-        artyom.fatality();// use this to stop any of
+        mythis.artyom.fatality();// use this to stop any of
 
         setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
-             artyom.initialize({
+             mythis.artyom.initialize({
                 lang:"en-US",// A lot of languages are supported. Read the docs !
                 continuous:true,// Artyom will listen forever
                 listen:true, // Start recognizing
@@ -76,13 +76,45 @@ class Layout extends Component {
 
   }
 
+  handleSubmit(event){
+    event.preventDefault();
+
+    var mythis = this;
+
+    this.client.textRequest(mythis.state.input)
+    .then(function(response) {
+            var result;
+            try {
+              result = response.result.fulfillment.speech
+            } catch(error) {
+              result = "";
+            }
+            //console.log(response);
+            //console.log(result);
+            //Component.setState({theResult:result});
+            console.log(result);
+            mythis.artyom.say(result);
+            mythis.setState({theResult:result});
+
+          })
+          .catch(function(err) {
+            console.log(err);
+
+          });
+
+  }
+
 
 
   render(){
     return(
       <div>
         <div className="userinput">
-          <UserInput />
+          <form onSubmit={event => this.handleSubmit(event)}>
+          <input
+              value={this.state.input}
+              onChange={event => this.setState ({input: event.target.value})} />
+          </form>
         </div>
         <div className="Result">
           <ResultStatement answer={this.state.theResult} />
