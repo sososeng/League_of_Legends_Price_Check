@@ -11,7 +11,7 @@ class Layout extends Component {
     this.state = {
       theResult: '',
       input: '',
-      itemID:''
+      itemID:'none'
     };
 
     this.client = new ApiAiClient({accessToken: "585cfd962bea4e58bc07e568b69615a8"});
@@ -96,7 +96,6 @@ class Layout extends Component {
             //console.log(response);
             //console.log(result);
             //Component.setState({theResult:result});
-            console.log(result);
             mythis.artyom.say(result);
             mythis.setState({theResult:result, itemID:itemName});
 
@@ -121,7 +120,7 @@ class Layout extends Component {
           </form>
         </div>
         <div className="Result">
-          <ResultStatement answer={this.state.theResult} itemname={this.state.itemID}  />
+          <ResultStatement answer={this.state.theResult} itemID={this.state.itemID}  />
         </div>
       </div>
     );
