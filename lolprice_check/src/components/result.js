@@ -1,10 +1,21 @@
 import React from 'react';
 
-const ResultStatement = ({answer}) =>{
+import {ITEMS} from '../ITEMS';
 
+const ResultStatement = ({answer,itemID}) =>{
+
+  var images="";
+  var tempst = "";
+
+  if(itemID !== "none"){
+    tempst = "item/" + ITEMS.data[itemID].image.full;
+    images = <img src = {tempst} alt="" />;
+
+  }
   return(
     <div>
-      <h1>{answer}</h1>
+      <h5>{answer}</h5>
+      {images}
     </div>
   )
 }

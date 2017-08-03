@@ -10,7 +10,8 @@ class Layout extends Component {
 
     this.state = {
       theResult: '',
-      input: ''
+      input: '',
+      itemID:'none'
     };
 
     this.client = new ApiAiClient({accessToken: "585cfd962bea4e58bc07e568b69615a8"});
@@ -44,7 +45,7 @@ class Layout extends Component {
                      //console.log(response);
                      console.log(result);
                      console.log("test: " +itemName);
-                     mythis.setState({theResult:result});
+                     mythis.setState({theResult:result, itemID: itemName});
                      mythis.artyom.say(result);
 
                    })
@@ -84,17 +85,19 @@ class Layout extends Component {
     this.client.textRequest(mythis.state.input)
     .then(function(response) {
             var result;
+            var itemName;
             try {
-              result = response.result.fulfillment.speech
+              result = response.result.fulfillment.speech;
+              itemName = response.result.fulfillment.messages[1].payload.name;
             } catch(error) {
               result = "";
+              itemName="";
             }
             //console.log(response);
             //console.log(result);
             //Component.setState({theResult:result});
-            console.log(result);
             mythis.artyom.say(result);
-            mythis.setState({theResult:result});
+            mythis.setState({theResult:result, itemID:itemName});
 
           })
           .catch(function(err) {
@@ -117,7 +120,7 @@ class Layout extends Component {
           </form>
         </div>
         <div className="Result">
-          <ResultStatement answer={this.state.theResult} />
+          <ResultStatement answer={this.state.theResult} itemID={this.state.itemID}  />
         </div>
       </div>
     );
