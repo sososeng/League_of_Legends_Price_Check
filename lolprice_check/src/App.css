@@ -1,8 +1,13 @@
 .App {
   text-align: center;
   height: 100vh;
+<<<<<<< HEAD
   background-color: #2A455B;
   font-family: "Times New Roman";
+=======
+  background-color: #413F3D;
+  font-family: "Fremont";
+>>>>>>> master
 }
 
 
@@ -13,11 +18,17 @@
 }
 .subtitle {
   font-size: 25px;
+<<<<<<< HEAD
   color: #C9AA71;
   margin: 0;
   margin-top: -.5em;
   font-weight: bold;
 
+=======
+  height: 100px;
+  padding: 5px;
+  color: #A2A6B1;
+>>>>>>> master
 }
 
 
