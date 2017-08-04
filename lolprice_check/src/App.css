@@ -1,17 +1,23 @@
 .App {
   text-align: center;
   height: 100vh;
-  background-color: #4C5C68;
-  border-radius: 5px;
+  background-color: #2A455B;
   font-family: "Times New Roman";
 }
 
 
-.App-header {
+.logo{
+  width: 20%;
+  margin: 0;
+  border: 0;
+}
+.subtitle {
   font-size: 25px;
-  height: 100px;
-  padding: 20px;
-  color: #008FC4;
+  color: #C9AA71;
+  margin: 0;
+  margin-top: -.5em;
+  font-weight: bold;
+
 }
 
 

@@ -1,16 +1,17 @@
 import React from 'react';
-
 import {ITEMS} from '../ITEMS';
+import './result.css';
 
 const ResultStatement = ({answer,itemID}) =>{
 
   var images="";
-  var tempst = "";
+  var tempst;
 
   if(itemID !== "none"){
-    tempst = "item/" + ITEMS.data[itemID].image.full;
-    images = <img src = {tempst} alt="" />;
-
+    tempst = {
+      backgroundImage: 'url(item/' + ITEMS.data[itemID].image.full+')'
+    };
+    images = <div className = "itemOne" style={tempst}></div>;
   }
   return(
     <div>

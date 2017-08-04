@@ -8,7 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <p>League of Legends Price Check</p>
+          <img className = "logo" src = "logo.png" atr=""/>
+          <p className = "subtitle">Price Check AI</p>
         </div>
         <Layout />
       </div>
