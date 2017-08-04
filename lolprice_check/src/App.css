@@ -1,17 +1,16 @@
 .App {
   text-align: center;
   height: 100vh;
-  background-color: #4C5C68;
-  border-radius: 5px;
-  font-family: "Times New Roman";
+  background-color: #413F3D;
+  font-family: "Fremont";
 }
 
 
 .App-header {
   font-size: 25px;
   height: 100px;
-  padding: 20px;
-  color: #008FC4;
+  padding: 5px;
+  color: #A2A6B1;
 }
 
 

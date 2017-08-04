@@ -8,7 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <p>League of Legends Price Check</p>
+          <p>LEAGUE OF LEGENDS</p>
+          <p> Price Check AI</p>
         </div>
         <Layout />
       </div>
