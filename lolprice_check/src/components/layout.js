@@ -98,7 +98,7 @@ class Layout extends Component {
             //Component.setState({theResult:result});
             mythis.artyom.say(result);
             mythis.setState({theResult:result, itemID:itemName});
-
+            console.log();
           })
           .catch(function(err) {
             console.log(err);
