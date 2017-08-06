@@ -1,0 +1,8 @@
+.itemOne{
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border: 2px outset #F4CF5A;
+  border-radius: 10px;
+  background-position: center center;
+}
