@@ -1,8 +1,36 @@
-.itemOne{
+.item{
   width: 64px;
   height: 64px;
   margin: 0 auto;
   border: 2px outset #F4CF5A;
   border-radius: 10px;
   background-position: center center;
+
+}
+
+.outerItem{
+  display: inline-flex;
+  margin: 1em;
+}
+
+.inner{
+  border: 2px solid #0AB4B9;
+  border-radius: 10px;
+  color: #F4CF5A;
+  padding: 1px;
+  margin :.1em;
+}
+
+.inner:hover{
+  border: 2px solid #16ebf3;
+}
+
+.outer{
+  display: inline-flex;
+  margin: 1em;
+}
+
+.out{
+  display: flex;
+  justify-content:space-around;
 }
