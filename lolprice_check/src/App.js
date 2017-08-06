@@ -8,10 +8,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <p>LEAGUE OF LEGENDS</p>
-          <p> Price Check AI</p>
+          <p>LEAGUE OF LEGENDS <br/>
+            Price Check AI</p>
         </div>
-        <Layout />
+        <div className="Input-line">
+          <Layout />
+        </div>
       </div>
     );
   }

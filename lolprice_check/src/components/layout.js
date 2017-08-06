@@ -112,7 +112,7 @@ class Layout extends Component {
   render(){
     return(
       <div>
-        <div className="userinput">
+        <div className="User-input">
           <form onSubmit={event => this.handleSubmit(event)}>
           <input
               value={this.state.input}
