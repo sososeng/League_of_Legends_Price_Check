@@ -18,15 +18,18 @@ const ResultStatement = ({answer,itemID}) =>{
     if(itemBuildTo !== undefined){
       for(let i = 0 ;i<itemBuildTo.length; i ++){
         let temstyle ={
-              backgroundImage: 'url(item/' + ITEMS.data[itemBuildTo[i]].image.full+')',
-              display: 'inline-flex'
+              backgroundImage: 'url(item/' + ITEMS.data[itemBuildTo[i]].image.full+')'
             };
 
-        let temp = <div className = "itemOne" style={temstyle} key = {itemBuildTo[i]}></div>;
+        let temp = <div className ="outerItem" key = {itemBuildTo[i]}>
+                      <div className = "item" style={temstyle} >
+                      </div>
+                  </div>;
         itemBuidToDiv.push(temp);
 
 
       }
+
     }
     //building required items list recursively
     build(1,itemBuildFrom, itemID);
@@ -49,11 +52,16 @@ const ResultStatement = ({answer,itemID}) =>{
       <h5>{answer}</h5>
       {itemBuidToDiv}
       <br/>
-      {itemBuildFromDivOne}
-      <br/>
-      {itemBuildFromDivTwo}
-      <br/>
-      {itemBuildFromDivThree}
+      <div className = "out">
+        {itemBuildFromDivOne}
+      </div>
+
+      <div className = "out">
+        {itemBuildFromDivTwo}
+      </div>
+      <div className = "out">
+        {itemBuildFromDivThree}
+      </div>
     </div>
   )
 }
@@ -66,10 +74,18 @@ function build(index,items,itemID){
     return;
   }
   let temstyle ={
-    backgroundImage: 'url(item/' + ITEMS.data[itemID].image.full+')',
-    display: 'inline-flex'
+    backgroundImage: 'url(item/' + ITEMS.data[itemID].image.full+')'
   };
-  let temp = <div className = "itemOne" style={temstyle} key = {itemID+index}></div>;
+
+  let temp   = <div className = "outer" key = {itemID+index}>
+                <div className = "inner">
+                  <div className = "item" style={temstyle} >
+                  </div>
+                  <p>{ITEMS.data[itemID].gold.total}</p>
+                </div>
+              </div>;
+
+
   items[index] = temp;
 
 
