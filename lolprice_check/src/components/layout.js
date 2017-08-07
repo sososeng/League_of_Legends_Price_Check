@@ -116,7 +116,7 @@ class Layout extends Component {
           <form onSubmit={event => this.handleSubmit(event)}>
           <input
               value={this.state.input}
-              onChange={event => this.setState ({input: event.target.value})} />
+              onChange={event => this.setState ({input: event.target.value})} required="Please Say or Input a valid item name"/>
           </form>
         </div>
         <div className="Result">

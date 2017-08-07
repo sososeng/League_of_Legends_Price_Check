@@ -1,7 +1,8 @@
 .App {
+  font-family: 'Merriweather', serif;
   text-align: center;
   height: 100vh;
-  font-family: "Fremont";
+  letter-spacing: 2px;
 
 }
 
@@ -13,23 +14,42 @@
 }
 
 .App-header {
-  font-size: 25px;
+  font-size: 35px;
   color: white;
   margin: 0;
-  height: 40%;
+  height: 45%;
   padding: 5px;
   background-color: #1F8ECD;
+}
 
+.Footer{
+  position:static;
+  margin-top: 30px;
+  bottom: 0px;
+  font-size: 8px;
+  width: 100%;
 }
 
 .Input-line {
-  margin-top:50px;
   color: black;
-  margin: 50px 20% 0 20%;
+  margin: 20px 20% 0 20%;
+
+}
+
+:required {
+  background: red;
+}
+
+input:enabled {
+  box-shadow: 4px 4px 10px rgba(0, 168, 167, 0.65);
 }
 
 .User-input {
   font-size: 20px;
+}
+
+.Result:before {
+  content: 'Hello, My name is Ori! Please say or input an item name for me to look up.';
 }
 
 
