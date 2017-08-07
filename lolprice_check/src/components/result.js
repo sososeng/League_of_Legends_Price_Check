@@ -34,35 +34,46 @@ const ResultStatement = ({answer,itemID}) =>{
     //building required items list recursively
     build(1,itemBuildFrom, itemID);
 
-    //building required items hierarchy
-    for(let key in itemBuildFrom){
-      if(key === "1"){
-        itemBuildFromDivOne.push(itemBuildFrom[key]);
-      }else if( key <=Number(4) && key>Number(1)){
-        itemBuildFromDivTwo.push(itemBuildFrom[key]);
-      }else{
-        itemBuildFromDivThree.push(itemBuildFrom[key]);
-      }
-    }
 
+
+
+     for(let i = 2;i<=4;i++){
+       if(itemBuildFrom[i] !== undefined){
+         let temp = [];
+         for(let j = 1;j<=3;j++){
+           if(itemBuildFrom[i*3 - (j-2)] !==undefined){
+             temp.push(<li>{itemBuildFrom[i*3 - (j-2)]}</li>);
+           }
+         }
+         if(temp.length >0){
+           itemBuildFromDivTwo.push(<li>{itemBuildFrom[i]} <ul>{temp}</ul> </li>);
+         }else{
+           itemBuildFromDivTwo.push(<li>{itemBuildFrom[i]}</li>);
+         }
+       }
+     }
+
+     if(itemBuildFrom[2] === undefined){
+       itemBuildFromDivOne.push(itemBuildFrom[1]);
+     }else{
+       itemBuildFromDivOne.push(<li>{itemBuildFrom[1]} <ul>{itemBuildFromDivTwo}</ul></li>);
+     }
 
   }
   return(
     <div>
       <h5>{answer}</h5>
-      {itemBuidToDiv}
-      <br/>
-      <div className = "out">
-        {itemBuildFromDivOne}
-      </div>
+       {itemBuidToDiv}
+       <br/>
 
-      <div className = "out">
-        {itemBuildFromDivTwo}
-      </div>
-      <div className = "out">
-        {itemBuildFromDivThree}
+      <div className="tree">
+        <ul>
+          {itemBuildFromDivOne}
+        </ul>
       </div>
     </div>
+
+
   )
 }
 
