@@ -62,14 +62,19 @@ const ResultStatement = ({answer,itemID}) =>{
   }
   return(
     <div>
-      <h5>{answer}</h5>
-       {itemBuidToDiv}
-       <br/>
-
-      <div className="tree">
-        <ul>
-          {itemBuildFromDivOne}
-        </ul>
+      <div className="Answer">
+        <p>{answer}</p>
+      </div>
+      <div className="BuildInto">
+        {itemBuidToDiv}
+      </div>
+      <br/>
+      <div className="Shop">
+        <div className="tree">
+          <ul>
+            {itemBuildFromDivOne}
+            </ul>
+        </div>
       </div>
     </div>
 
