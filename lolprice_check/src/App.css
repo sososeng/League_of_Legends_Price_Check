@@ -22,6 +22,27 @@
   background-color: #1F8ECD;
 }
 
+.Answer {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.BuildInto {
+  background-color: rgba(1, 17, 17, .9);
+  border: 2px solid #26a69a;
+  overflow: auto;
+  white-space: nowrap;
+  border-radius: 5px;
+  height: 120px;
+}
+
+.Shop {
+  background-color: rgba(1, 17, 17, .9);
+  border: 2px solid #26a69a;
+  border-radius: 5px;
+  min-height: 350px;
+}
+
 .Footer{
   position:static;
   margin-top: 30px;
@@ -46,10 +67,6 @@ input:enabled {
 
 .User-input {
   font-size: 20px;
-}
-
-.Result:before {
-  content: 'Hello, My name is Ori! Please say or input an item name for me to look up.';
 }
 
 
