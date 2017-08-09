@@ -1,6 +1,7 @@
 import React from 'react';
 import {ITEMS} from '../ITEMS';
 import './result.css';
+import ReactTooltip from 'react-tooltip';
 
 const ResultStatement = ({answer,itemID}) =>{
 
@@ -9,7 +10,7 @@ const ResultStatement = ({answer,itemID}) =>{
   var itemBuildFrom={};
   var itemBuildFromDivOne=[];
   var itemBuildFromDivTwo=[];
-  var itemBuildFromDivThree=[];
+
   //if items existed show the image of that item
   if(itemID !== "none"){
     itemBuildTo = ITEMS.data[itemID].into;
@@ -20,10 +21,36 @@ const ResultStatement = ({answer,itemID}) =>{
         let temstyle ={
               backgroundImage: 'url(item/' + ITEMS.data[itemBuildTo[i]].image.full+')'
             };
+        let statTemp = [];
+        let tip=[];
+        let stat = ITEMS.data[itemBuildTo[i]].description.replace(/(<a\b[^>]*>)[^<>]*(<\/a>)/g, "");
+         stat = stat.replace(/<\/?[^>]+(>|$)/g, "@");
+         stat = stat.replace(":@", ":");
+        statTemp = stat.split(/[@]+/);
 
-        let temp = <div className ="outerItem" key = {itemBuildTo[i]}>
-                      <div className = "item" style={temstyle} >
+        for(let tipRunner = 0 ; tipRunner<statTemp.length; tipRunner++){
+          if(statTemp[tipRunner] !== ""){
+
+            if(statTemp[tipRunner].includes("Passive")){
+              tip.push(<br className = "Breaker"/>);
+              tip.push(<p className = "UNIQUE">{statTemp[tipRunner]}</p>);
+            }else{
+              tip.push(<p className = "REQULAR">{statTemp[tipRunner]}</p>);
+            }
+          }
+        }
+        let temp = <div className ="outerItem" key = {itemBuildTo[i]} >
+                      <div className = "inner" data-tip data-for={itemBuildTo[i]}>
+                        <div className = "item" style={temstyle} >
+                        </div>
                       </div>
+                      <ReactTooltip id={itemBuildTo[i]} aria-haspopup='true'>
+                        <img className="tipImage" src = {'item/'+ITEMS.data[itemBuildTo[i]].image.full} alt=""/>
+                        <div className= "tipText">
+                        <p className = "tipName">{ITEMS.data[itemBuildTo[i]].name}</p>
+                        {tip}
+                        </div>
+                     </ReactTooltip>
                   </div>;
         itemBuidToDiv.push(temp);
 
@@ -99,12 +126,38 @@ function build(index,items,itemID){
     backgroundImage: 'url(item/' + ITEMS.data[itemID].image.full+')'
   };
 
+  let statTemp = [];
+  let tip=[];
+  let stat = ITEMS.data[itemID].description.replace(/(<a\b[^>]*>)[^<>]*(<\/a>)/g, "");
+   stat = stat.replace(/<\/?[^>]+(>|$)/g, "@");
+   stat = stat.replace(":@", ":");
+  statTemp = stat.split(/[@]+/);
+
+  for(let tipRunner = 0 ; tipRunner<statTemp.length; tipRunner++){
+    if(statTemp[tipRunner] !== ""){
+
+      if(statTemp[tipRunner].includes("Passive")){
+        tip.push(<br className = "Breaker"/>);
+        tip.push(<p className = "UNIQUE">{statTemp[tipRunner]}</p>);
+      }else{
+        tip.push(<p className = "REQULAR">{statTemp[tipRunner]}</p>);
+      }
+    }
+  }
+
   let temp   = <div className = "outer" key = {itemID+index}>
-                <div className = "inner">
-                  <div className = "item" style={temstyle} >
+                <div className = "inner" data-tip data-for={itemID}>
+                  <div className = "item" style={temstyle}>
                   </div>
                   <p>{ITEMS.data[itemID].gold.total}</p>
                 </div>
+                <ReactTooltip id={itemID} aria-haspopup='true'>
+                  <img className="tipImage" src = {'item/'+ITEMS.data[itemID].image.full} alt=""/>
+                  <div className= "tipText">
+                  <p className = "tipName">{ITEMS.data[itemID].name}</p>
+                  {tip}
+                  </div>
+               </ReactTooltip>
               </div>;
 
 
