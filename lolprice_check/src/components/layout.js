@@ -9,7 +9,7 @@ class Layout extends Component {
     super(props);
 
     this.state = {
-      theResult: '',
+      theResult: 'Hello, My name is Ori',
       input: '',
       itemID:'none'
     };
@@ -112,11 +112,14 @@ class Layout extends Component {
   render(){
     return(
       <div>
-        <div className="User-input">
+        <div>
           <form onSubmit={event => this.handleSubmit(event)}>
-          <input
-              value={this.state.input}
-              onChange={event => this.setState ({input: event.target.value})} required="Please Say or Input a valid item name"/>
+            <div className="User-input">
+              <input
+                  value={this.state.input}
+                  onChange={event => this.setState ({input: event.target.value})} required="Please Say or Input a valid item name"
+                  placeholder=" Say or type an item to look up"/>
+            </div>
           </form>
         </div>
         <div className="Result">

@@ -13,6 +13,21 @@
   border: 0;
 }
 
+.OriHead{
+  position: static;
+  background-image: url("./ori.png");
+  width:20%;
+  height: 200px;
+  z-index: 5000;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  margin: 0 auto;
+}
+.OriHead:hover{
+  background-image: url("./ori2.png");
+}
+
 .App-header {
   font-size: 35px;
   color: white;
@@ -24,18 +39,22 @@
 
 .Answer {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #878685;
+  font-style: italic;
   text-transform: capitalize;
 }
 
 .BuildInto {
   background-color: rgba(1, 17, 17, .9);
+  box-shadow: 5px 5px 10px rgba(0, 168, 167, 0.65);
   border: 2px solid #26a69a;
   overflow: auto;
   overflow-y:hidden;
   white-space: nowrap;
   border-radius: 5px;
-  height: 120px;
+  height: 130px;
 }
 .BuildIntoText{
   text-align:left;
@@ -46,6 +65,11 @@
 
 .Shop {
   background-color: rgba(1, 17, 17, .9);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  margin: 0 auto;
+  box-shadow: 5px 5px 10px rgba(0, 168, 167, 0.65);
   border: 2px solid #26a69a;
   border-radius: 5px;
   min-height: 350px;
@@ -81,11 +105,9 @@ input:enabled {
 }
 
 .User-input {
-  font-size: 20px;
+  font-size: 30px;
+  color: #595c5e;
 }
-
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+input{
+  font-size: 3rem;
 }
