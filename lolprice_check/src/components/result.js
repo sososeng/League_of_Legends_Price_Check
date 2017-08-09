@@ -93,10 +93,16 @@ const ResultStatement = ({answer,itemID}) =>{
         <p>{answer}</p>
       </div>
       <div className="BuildInto">
+        <div className="BuildIntoText">
+          <p>Build Into: </p>
+        </div>
         {itemBuidToDiv}
       </div>
       <br/>
       <div className="Shop">
+        <div className="ShopText">
+          <p>Requires: </p>
+        </div>
         <div className="tree">
           <ul>
             {itemBuildFromDivOne}
