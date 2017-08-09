@@ -9,7 +9,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={ori} alt="Ori's Avatar" width="200px" style={{position:'static'}}/>
+          <div className="OriHead">
+
+          </div>
           <p>Price Check AI</p>
         </div>
         <div className="Input-line">
