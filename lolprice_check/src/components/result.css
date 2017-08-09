@@ -142,3 +142,8 @@ p{
 .Breaker{
   display: block;
 }
+
+.__react_component_tooltip.place-top {
+
+    border: 1px solid white;
+}
