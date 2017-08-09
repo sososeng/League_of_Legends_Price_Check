@@ -9,7 +9,7 @@ class Layout extends Component {
     super(props);
 
     this.state = {
-      theResult: 'Hello, My name is Ori',
+      theResult: 'Hello, My name is Ash',
       input: '',
       itemID:'none'
     };
@@ -23,7 +23,7 @@ class Layout extends Component {
 
     var commandHello = {
         smart:true,
-        indexes:["okay Ori *"], // These spoken words will trigger the execution of the command
+        indexes:["okay Ash *"], // These spoken words will trigger the execution of the command
         action:function(i, wildcard){ // Action to be executed when a index match with spoken word
           //  console.log(wildcard);
           //  artyom.dontObey();
