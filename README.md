@@ -1,6 +1,7 @@
 # League_of_Legends_Price_Check
   **Description**
   A web app integrated with Google Actions to allow League of Legends players to look up the price of an item and its build path via voice command or text input.
+  
   **Contributors:**
   Sokhun Seng, Setya Seng
 
