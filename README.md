@@ -5,10 +5,12 @@
 
   **How To**
   On Local
+
    1.Clone the repository and run npm install
    2.run npm start
 
   On The Web
+  
     ![Demo](https://github.com/sososeng/League_of_Legends_Price_Check/tree/master/lolprice_check/src/LOL_One.png)
 
   **Contributors:**
